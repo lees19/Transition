@@ -1,0 +1,100 @@
+\documentclass{article} 
+
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+
+\usepackage{fullpage}
+\usepackage[margin = .75 in]{geometry}
+\usepackage[leqno]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+
+\usepackage{graphicx,color,url,hyperref}
+\usepackage{epsfig}
+\fancyhf{}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+
+\newcommand{\NN}{\mathbf N}
+\newcommand{\RR}{\mathbf R}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\ZZ}{\mathbf Z}
+\newcommand{\ZZn}[1]{\ZZ/{#1}\ZZ}
+\newcommand{\QQ}{\mathbf Q}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\rr}{\mathbb R}
+\newcommand{\cc}{\mathbb C}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\zzn}[1]{\zz/{#1}\zz}
+\newcommand{\qq}{\mathbb Q}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\latex}{\LaTeX}
+\newcommand{\tex}{\TeX}
+\newcommand{\dd}{{\rm d}}
+\newcommand{\sm}{\setminus} 
+
+\title{Homework 2 Solutions}
+\author{Sunny Lee}
+\date{September 10, 2020}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{9.16.2020}
+\lhead{Sunny Lee}
+\chead{Math 2550 HW2}
+\rfoot{Page \thepage}
+
+\begin{document}
+
+\begin{enumerate}
+    \item \emph{Solution.} \\
+    Assume every even number greater than 2 can be expresssed 
+    as a sum of two primes. Let $p_{a}$ and $p_{b}$ be two arbitrary primes. Then, for
+    some natural number k, $p_{a} + p_{b} = 2k$. Let $p_{c}$ be an arbitrary prime number. 
+    Then, $p_{c}$ is either 2 or odd. If $p_{c}$ is odd, $p_{c}$ can be written 
+    as $2m+1$ for some natural number m. Then, $p_{a} + p_{b} + p_{c} = 2k + 2m + 1$. 
+    Since the integers are closed under addition, $k+m$ is an integer. Therefore, 
+    $p_{a} + p_{b} + p_{c} = 2(k+m) + 1$ which is an odd number. 
+
+    \item \emph{Solution.}\\
+    Suppose there exist integers $n$ and $m$ such that $21n + 6m = 5$. Then, since both 
+    $21$ and $6$ are divisible by $3$, by distribution, $21n + 6m = 3(7n + 2m)$. Since 
+    the integers are closed under addition and multiplication, $7n + 2m$ is an integer.
+    Since $7n + 2m$ is an integer, this number produces a multiple of three. However, 
+    5 is not a multiple of 3. Therefore, there do not exist integers $n, m$  such that
+    $21n + 6m = 3(7n + 2m) = 5$. 
+
+    \item \emph{Solution.} \\
+    Let $c, a \in \zz$, $c > 0$, $a$ is odd, $c$ divides $a$ and $c$ divides $a+2$. Then, 
+    $a = 2k + 1$ for some $k \in \zz$. Since $c$ divides $a$ and $a+2$, $cm = a$
+    and $cn = a+2$ for some numbers $m, n \in \zz$. 
+    
+    \item \emph{Solution.}
+    Assume that $m$ is not a multiple of 5. Then, $m = 5d + 1$ or $5d + 2$ or $5d + 3$ or $5d + 4$. 
+    \begin{enumerate}
+        \item Case 1: If $m = 5d + 1$, then $m^2 = (5d + 1)^2 = 5(5d^2+2d)+1$
+        \item Case 2: If $m = 5d + 2$, then $m^2 = (5d + 2)^2 = 5(5d^2+4d)+4$
+        \item Case 3: If $m = 5d + 3$, then $m^2 = (5d + 3)^2 = 5(5d^2+6d)+9$
+        \item Case 4: If $m = 5d + 4$, then $m^2 = (5d + 4)^2 = 5(5d^2+8d)+16$
+    \end{enumerate}
+    Thus, if $m$ is not a multiple of $5$, then $m^2$ is not a multiple of $5$. Therefore, 
+    if $m^2$ is a multiple of five, then $m$ must also be a multiple of five. 
+
+    \item \emph{Solution.} 
+    Assume, to the contrary, that $\sqrt{5}$ was a rational number. Then, $\sqrt{5} = \frac{m}{n}$
+    for two integers $m, n \in \zz$. Assume $m$ and $n$ are in lowest terms. Then, $5 = \frac{m^2}{n^2}$
+    and therefore, $5n^2 = m^2$. Since $m^2$ is a multiple of $5$, by the previously 
+    proven theorem, $m$ must also be a multiple of five. Therefore, $m = 5d$ for some 
+    $d \in \zz$. Then, since $m = 5d$, $m^2 = 25d^2$. Thus, $5n^2 = 25d^2$. By cancellation, 
+    $n^2 = 5d^2$. Thus, $n^2$ is a multiple of five, and by the previous theorem, $n$ must 
+    also be a multiple of five. Since n and m are both multiples of five, this contradicts
+    the assumption that m and n are in lowest terms. Thus, we reach a contradiction and we 
+    conclude that $\sqrt{5}$ cannot be a rational number.
+\end{enumerate}
+
+\end{document}

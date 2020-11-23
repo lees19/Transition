@@ -1,0 +1,978 @@
+\documentclass[12pt,letterpaper]{amsart}
+\setlength{\oddsidemargin}{.0in}
+\setlength{\evensidemargin}{.0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{-.3in}
+\setlength{\headsep}{.20in}
+\setlength{\textheight}{9.in}
+\usepackage[leqno]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+
+
+%Here are some user-defined notations
+\newcommand{\RR}{\mathbf R}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\ZZ}{\mathbf Z}
+\newcommand{\ZZn}[1]{\ZZ/{#1}\ZZ}
+\newcommand{\QQ}{\mathbf Q}
+\newcommand{\rr}{\mathbb R}
+\newcommand{\cc}{\mathbb C}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\zzn}[1]{\zz/{#1}\zz}
+\newcommand{\qq}{\mathbb Q}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\latex}{\LaTeX}
+\newcommand{\tex}{\TeX}
+\newcommand{\dd}{{\rm d}}
+\newcommand{\sm}{\setminus} 
+
+
+%Here are commands with variable inputs 
+\newcommand{\intf}[1]{\int_a^b{#1}\,\dd{x}}
+\newcommand{\intfb}[3]{\int_{#1}^{#2}{#3}\,\dd{x}}
+\newcommand{\pln}[1]{$\sm${\tt #1}}
+\newcommand{\bgn}[1]{$\tt {\sm}begin\{#1\}$}
+\newcommand{\nd}[1]{$\tt {\sm}end\{#1\}$}
+\newcommand{\marginalfootnote}[1]{%
+        \footnote{#1}
+        \marginpar[\hfill{\sf\thefootnote}]{{\sf\thefootnote}}}
+\newcommand{\edit}[1]{\marginalfootnote{#1}}
+
+
+%Here are some user-defined operators
+\newcommand{\Tr}{\operatorname {Tr}}
+\newcommand{\GL}{\operatorname {GL}}
+\newcommand{\SL}{\operatorname {SL}}
+\newcommand{\Prob}{\operatorname {Prob}}
+\newcommand{\re}{\operatorname {Re}}
+\newcommand{\im}{\operatorname {Im}}
+
+
+%These commands deal with theorem-like environments (i.e., italic)
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+%These deal with definition-like environments (i.e., non-italic)
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+%This numbers equations by section
+\numberwithin{equation}{section}
+
+
+\begin{document}
+
+
+\begin{titlepage}
+\title{An Introduction to \latex}
+\author{}
+\date{Aug. 31, 2005}
+\maketitle
+
+\centerline{\Large Math 200}
+
+\hfill
+
+\centerline{\Large University of Connecticut}
+\thispagestyle{empty}
+\end{titlepage}
+\pagebreak
+
+
+
+\thispagestyle{empty}
+\tableofcontents
+
+
+\vfill
+
+
+
+\pagebreak
+ 
+\pagenumbering{arabic}
+
+%%%Start your work here. 
+
+\section{Introduction}\label{intro}
+
+This handout discusses the preparation of 
+mathematical documents using \latex.  
+Look at the file \pln{math200format.tex} with your 
+favorite text editor to see how mathematical (and typesetting) commands 
+described below are written. 
+
+This file can also be used as a template for the preparation of your paper. 
+With this in mind, open the file \pln{math200paper.tex} with your 
+favorite text editor  and save it as 
+{\tt math200{\it lastname}.tex} (where you write your last name instead in 
+the name of the file). 
+If you need any \latex{} construction, an equation for example, 
+just find a similar one in this or other \latex{} file, copy, paste and edit. 
+
+If you use Apple computers in the Math department, you can open any 
+\latex{} file by clicking on it. There is a ``typeset'' button which you use 
+to see the results of your editing, and then to print the paper.
+While the edited changes you make go through after typesetting once, 
+sometimes you have to typeset {\it two or three} times to see 
+all the corresponding changes in equation numbers, the table of contents, and
+cross references.  When equations get moved around they have to be renumbered, 
+but on the first 
+pass at typesetting \latex{} won't fix all the cross-references (for instance) but only notices 
+they need to be changed.  It will fix things up better the second (or third) 
+time.
+
+
+If you use UNIX or LINUX, then  you can open a \latex{} file with a text 
+editor. Also you 
+can open a terminal window and use the command \ {\tt latex 
+math200{\it lastname}} \ to typset the edited and saved file. Typically the 
+command \ {\tt xdvi math200{\it lastname}} \ is used to see the results 
+of your editing, and \ {\tt dvips math200{\it lastname}} \ is used for 
+printing. 
+
+There are free versions of \latex{} for Windows. See 
+{\tt http://www.ams.org/tex/}  
+for more on \latex{} and 
+{\tt http://www.cs.queensu.ca/home/gradseries/help/stuff/symbols.pdf} 
+for a very large list of \latex{} symbols. 
+({\bf Warning}: Not all the symbols there work without having special 
+packages installed, so try a symbol out once to see \latex{} 
+recognizes it before deciding to use it.) 
+Online tutorials at 
+{\tt http://www.comp.leeds.ac.uk/andyr/misc/latex/} 
+might be helpful, especially 
+tutorials 4, 6, 8, and 10. 
+
+{\bf A little history}. This typesetting system was originally designed by Donald Knuth, 
+who named it
+TeX, or \tex.  Leslie Lamport made improvements on \tex{} 
+and slapped the first two initials of his last name on the result, thus giving us 
+\latex.  If you want to get \tex{nical} about it, the system is pronounced 
+like this: 
+\tex{} = tek and \latex{} = ``lay-tek" (or ``la-tek"), but {\it not} 
+``teks'' or ``lay-teks". 
+This ends our little history.  For more information, see {\tt http://www.tug/org/whatis.html}.
+
+
+
+\section{Typesetting equations}\label{tsetsec}
+
+
+In \latex, math in a line of text is entered and exited using 
+a single dollar sign: {\tt \$x > 1\$} comes out as $x > 1$. 
+This is the cardinal rule!  
+
+To type a mathematical expression on its own line, 
+there are a few options.
+If you don't want the expression to be numbered 
+(for instance, you won't be referring back to it later on), then use
+double dollar signs: {\tt \$\$f(x) = 2x - 5\$\$} comes out 
+on its own line as 
+$$
+f(x) = 2x - 5.
+$$
+
+
+But maybe you want the equation to have a number on the side, like this:
+\begin{equation}\label{eqn-one}
+\int_a^b f'(x)\,\dd{x} = f(b) - f(a).
+\end{equation}
+This equation was typeset 
+using the commands 
+\bgn{equation}
+and \nd{equation}.
+A number on the side is produced. 
+{\bf NOTE}:  
+All \latex{} commands begin with a backslash $\sm$.
+
+How do you refer back to a displayed equation?  
+The command to use is \pln{ref}
+but we have to label the equation to give it 
+a name to refer back to.
+\footnote{Here's a footnote, produced with \pln{footnote}.}
+You do {\it not} want to 
+refer to the above equation by actually typing 
+in an equation number in your file, since the equation may get moved
+and then the number changes.  Let \latex{} handle that problem for you!
+The above equation was labelled {\tt eqn-one} by adding 
+{\tt $\sm$label$\{$eqn-one$\}$} after typing 
+\bgn{equation} above.
+You can refer back to the equation by typing 
+(\pln{ref}$\{${\tt eqn-one}$\}$). The result: (\ref{eqn-one}).
+
+There is no reason at all to call your equations {\tt eqn-one}, {\tt eqn-two}, 
+and so on.
+\edit{Here's another footnote, using 
+\pln{edit}. It leaves a number 
+in the margin.  Use this when making editing notes to yourself.}
+You could just as well call them something else.  For instance, 
+consider the following famous formula:
+\begin{equation}\label{holycow} 
+r = \frac{-b \pm \sqrt{b^2-4ac}}{2a}.
+\end{equation}
+The label for this equation is 
+{\tt holycow}, but you can't see that from 
+the output in the formula. 
+The reference command 
+$\tt ({\sm}ref\{holycow\})$ 
+produces something innocent-looking: (\ref{holycow}). 
+A more reasonable label for 
+(\ref{holycow}) might have been, say, {\tt qformula} or {\tt qf}.
+Anyway, the point of using labels is that even when things get moved around 
+(and they sure will) this referencing system will regenerate 
+correct numbers for everything. 
+
+Quite generally, the command $\tt {\sm}label\{name\}$ is used to 
+label equations, theorems, sections, and anything else you 
+want to refer back to later, which you do as $\tt {\sm}ref\{name\}$.
+Put whatever you want in ``name'' to be the label you need 
+when making references elsewhere to that item.
+For instance, right now we are in Section \ref{tsetsec}. 
+The section was (arbitrarily) called {\tt tsetsec} by 
+typing $\tt {\sm}label\{tsetsec\}$ on the line in the file where 
+the section starts. 
+The command $\tt {\sm}ref\{tsetsec\}$ anywhere in the file 
+produces the number of this section.
+
+
+The commands 
+\bgn{eqnarray*}, \nd{eqnarray*} 
+get used for unnumbered stacked equations such as
+\begin{eqnarray*}
+(x+y)^2 & = & (x+y)(x+y) \\
+& = & x^2 + xy + yx + y^2 \\
+& = & x^2 + 2xy + y^2 \\
+& > & 0.
+\end{eqnarray*}
+If we want to number one of those equations, say to get 
+\begin{eqnarray}\label{e-eqnarray}
+(x+y)^2 & = & (x+y)(x+y)  \\
+& = & x^2 + xy + yx + y^2 \nonumber \\
+& = & x^2 + 2xy + y^2 \label{here} \\
+& > & 0, \nonumber
+\end{eqnarray}
+use \bgn{eqnarray}, \nd{eqnarray} 
+-- without the asterisks -- 
+and add $\tt {\sm}label\{name\}$ at the end of the line you want labeled 
+(calling it ``name'' or whatever else you want) 
+while putting \pln{nonumber} at 
+the end of the lines you don't want labeled.
+Now (\ref{here}) is available for referencing purposes. 
+
+
+
+
+Sometimes things are defined in cases, like the absolute value 
+function 
+$$
+|x| := 
+\begin{cases}
+\ \ x, & \text{ if }  x \geq 0, \\
+-x, & \text{ if } x < 0.
+\end{cases}
+$$
+The brace is generated using 
+\bgn{cases},\nd{cases}.
+All text in math mode, by default, is put in italics.  
+To tell \latex{} to keep certain text in math mode 
+unitalicized, like ``if'' in the definition above of 
+the absolute value, write $\tt {\sm}text\{ if \}$.  If you don't 
+do this, then ``if'' gets italicized and the output is ugly:
+$$
+|x| := 
+\begin{cases}
+\ \ x, & if   x \geq 0, \\
+-x, & if  x < 0.
+\end{cases}
+$$
+
+Finally, you might want to make something on a line of 
+text appear as large as it won a displayed equation. 
+Use \verb1\displaystyle{}1.  For instance, 
+$\displaystyle{\frac{a}{b+c}}$ is obtained using 
+\verb1\displaystyle{\frac{a}{b+c}}1.
+Without using \verb1displaystyle1, the fraction 
+in text looks like $\frac{a}{b+c}$.
+
+
+\section{User-Defined Commands and Operators}
+
+How do you make a new command?  For instance, 
+let's suppose you are going to be typing 
+the notation for real numbers, $\RR$, a lot.  
+You could type $\tt {\sm}mathbf \ R$ 
+(in math mode, {\it e.g.}, inside dollar signs) 
+each time.  That is tedious.  It's better to 
+create your own little command to abbreviate this. 
+Look at the top of the file and you'll see 
+$\tt {\sm}RR$ is introduced as a shortcut for $\RR$ 
+with the command 
+{\tt $\sm$newcommand$\{\sm$RR$\}\{\sm$mathbf R$\}$}. 
+Also included are
+shortcut commands for $\CC, \ZZ$, $\ZZn{m}$, and $\QQ$. 
+Shortcuts for the alternate fonts 
+$\rr, \cc, \zz, \zzn{m}$, and $\qq$ are at the top of the file as well. 
+If you are going to be writing $\mathcal M$ a  
+lot and you don't want to write out $\tt {\sm}mathcal \ M$
+each time, 
+the line 
+{\tt $\sm$newcommand$\{\sm$calM$\}\{\sm$mathcal M$\}$}
+at the top of the file 
+lets you instead write 
+{\tt $\sm$calM} to produce 
+what you expect: $\calM$.  $\calM$arvelous.
+
+
+
+In addition to user-defined commands, there are 
+user-defined operators. An operator is something 
+like $\sin$ or $\det$ which 
+is applied to something else: $\sin \pi$, 
+$\det A$. To ensure the right amount of spacing 
+after the operator, it should be defined as an operator 
+rather than as a command if it is not already part of \latex.
+While {\tt $\sm$sin} and {\tt $\sm$det} {\it are} already part of \latex{}, 
+consider the following examples.
+
+\begin{example}
+The default \latex{} real and imaginary part operators 
+are 
+\pln{Re} and \pln{Im}, 
+which come out like 
+$\Re$ and $\Im$, {\it e.g.}, $\Im(2+3i) = 3$.  How ugly!  
+See the top of the file for new operators 
+\pln{re} and \pln{im}. 
+Now we can write $\im(2+3i) = 3$.  That's better.
+\end{example}
+
+\begin{example}
+Although 
+\latex{} has an operator 
+\pln{det} 
+for the determinant of a matrix, 
+it has no default operator for the trace! 
+Look at the top of the file to see how the new operator 
+\pln{Tr} is defined, which lets us write things like 
+$\Tr (\begin{smallmatrix}2&1\\0&4\end{smallmatrix}) = 6$.
+\end{example}
+
+
+\begin{example}
+We want to refer to a probability using the shorthand ``Prob'' 
+while in math mode.  At the top of the file a user-defined 
+operator 
+\pln{Prob} 
+has been defined, so we can write 
+$\Prob(a \leq x \leq b) = \frac{1}{\sqrt{2\pi}}\int_a^b e^{-x^2/2}\,\dd{x}$ 
+and Prob is not in italics.  If we wrote plain ``Prob" there 
+without a special code for it, we'd get
+$Prob(a \leq x \leq b) = \frac{1}{\sqrt{2\pi}}\int_a^b e^{-x^2/2}\,\dd{x}$. 
+Yucko.
+\end{example}
+
+The final topic for this section is 
+commands with variable entries.  Here's the idea. 
+Suppose you will often need to write something like 
+$\int_a^b f(x)\,\dd{x}$ with a lot 
+of different functions.  You {\it could} 
+type 
+\verb1\int_a^b \sin x\,\dd{x}1, 
+\verb1\int_a^b e^x\,\dd{x}1, and so on each time. 
+But wouldn't it be nicer to type 
+only the new function each time and have the surrounding 
+material automated?  Here's how:
+A new command \verb5\intf5 is defined at the top of 
+the file in the following way:
+\begin{center}
+\verb5\newcommand{\intf}[1]{\int_a^b{#1}\,\dd{x}}5.
+\end{center}
+The \verb5[1]5 after \verb5\intf5 tells \latex{} that
+this command allows one variable input, and the 
+structure of the command tells \latex{} where to put the 
+variable.  (Look for the \verb5#15 in the command.) 
+For instance, typing just  
+\verb1\intf{\sin x}1 returns $\intf{\sin x}$
+and typing \verb1\intf{e^x}1 returns $\intf{e^x}$. 
+
+If you want the bounds of integration 
+adjustable too, use a 3-variable command \verb5\intfb5, 
+defined at the top of the file as 
+\begin{center}
+\verb5\newcommand{\intfb}[3]{\int_{#1}^{#2}_{#3}\,\dd{x}}5.
+\end{center}
+Then \verb1\intfb{0}{5}{e^x}1 returns 
+$\intfb{0}{5}{e^x}$ and \verb1\intfb{3}{b}{\cos x}1 
+returns $\intfb{3}{b}{\cos x}$. 
+
+
+
+\section{Theorems and Definitions}\label{thmdefsec}
+
+Your paper probably will include theorems, corollaries, definitions, 
+remarks, and so on.  The file {\tt math200paper.tex} has included special 
+commands at the top which will properly number and format 
+all of these {\it together} according to the section of 
+your paper.  
+
+
+Use 
+\bgn{theorem},\nd{theorem} 
+when starting 
+and ending your theorems. 
+Theorems are automatically typset in italics.
+Here's one.
+
+\begin{theorem}[Pythagoras]
+If $a$, $b$, and $c$ are the sides of a right triangle, with 
+$c$ the hypotenuse, then $c^2 = a^2 + b^2$. 
+\end{theorem}
+
+The name Pythagoras is tacked on 
+in square brackets {\tt [,]} after 
+\bgn{theorem}. Of course you don't have to attribute your theorems.
+
+All theorem-like environments (which means lemmas, theorems, corollaries, 
+and conjectures) are typeset the same way.  Here is a lemma.
+
+\begin{lemma}
+Let $W$ and $W'$ be subspaces of $\RR^n$.  
+Then $\dim(W + W') = \dim W + \dim W'$ if and only if 
+$W \cap W' = \{0\}$.
+\end{lemma}
+
+
+
+In addition to theorem-like environments, 
+there are definition-like environments. 
+That means: definitions, examples, and remarks
+In these environments text is unitalicized by default. 
+Produce a definition, for instance, using  
+\bgn{definition},\nd{definition}.
+
+\begin{definition}
+A function is called {\it smooth} when it is infinitely differentiable. 
+\end{definition}
+
+\begin{remark}
+Remarks are easy to produce, using 
+\bgn{remark},\nd{remark}.
+Use this 
+environment if there is something unusual (perhaps an easy misunderstanding) 
+you want to draw to the reader's attention.
+\end{remark}
+
+
+When you want to start and end a proof, use 
+\bgn{proof},\nd{proof}.
+Let's see how it looks as output.
+The box at the end of the proof is generated by the \nd{proof} command.
+
+
+\begin{theorem}
+If $x$ and $y$ are real and $x^2 - xy + y^2 = 0$ then $x = 0$ and 
+$y = 0$.
+\end{theorem}
+
+\begin{proof}
+We complete the square: $x^2 - xy + y^2 = (x - \frac{1}{2}y)^2 + 
+\frac{3}{4}y^2$.  This expression is always non-negative, so it 
+vanishes only when $x - \frac{1}{2}y = 0$ and $y = 0$.  Then 
+$x = 0$, so both $x$ and $y$ vanish. 
+\end{proof}
+
+
+
+
+\section{Relations}\label{notsec}
+
+Here is an assortment of mathematical things you might want to type. 
+Check out the commands which produce them in the file. 
+$$
+< \ \  > \ \ \leq \ \ \geq \ \ \ll \ \ \gg \ \ 
+\cong \ \ \sim \ \ \equiv \ \ \approx \ \ 
+\stackrel{\text{\tiny def}}{=} \ \ 
+\stackrel{\text{\tiny ?}}{=} \ \ 
+\subset \ \ \subseteq \ \ \times  
+$$
+$$
+\mapsto \ \ \leadsto \ \ 
+\rightarrow \ \ \leftarrow \ \ 
+\leftrightarrow \ \ 
+\longrightarrow \ \ \longleftarrow \ \ \longleftrightarrow 
+\ \ \Rightarrow \ \ \Leftarrow \ \ \ \Leftrightarrow \ \ 
+\ \ \Longrightarrow \ \ \Longleftarrow \ \ \Longleftrightarrow  
+$$
+$$
+\lfloor \ \  \rfloor \ \  
+\infty \ \ 
+\hat{a} \ \ \widehat{abc} \ \ 
+\vec{a} \ \ \overrightarrow{abc} \ \ \underrightarrow{abc} \ \ 
+\tilde{a} \ \ \widetilde{abc} \ \ 
+\imath \ \ 
+\jmath \ \ \hat{\imath} \ \ \hat{\jmath}
+$$
+$$
+\sin \ \ \cos \ \ \tan \ \ \arctan \ \ \log \ \ \ln \ \ \exp \ \ \dim \ \ \lim
+$$
+The dotless $\imath$ and $\jmath$ are available since 
+decorated $i$'s and $j$'s like $\hat{i}$ and $\hat{j}$ look 
+weird with the dot.
+
+
+\begin{example}
+You can choose between 
+$\lim_{\theta \rightarrow 0} (\sin \theta)/\theta = 1$ or 
+$\lim_{\theta \rightarrow 0} \frac{\sin \theta}{\theta} = 1$. 
+The tiny fraction is hard to read.  Maybe it's better 
+in the displayed version
+$$
+\lim_{\theta \rightarrow 0} \frac{\sin \theta}{\theta} = 1.
+$$
+\end{example}
+
+If you leave off the backslash on the sine function, 
+say you write 
+\${\tt sin} \pln{theta}\$ in haste, it 
+will come out like this: $sin \theta$.  Ugh.  If you forget both 
+backslashes, as \${\tt sin theta}\$, you get $sin theta$.  Ouch.
+Don't forget backslashes! $\sin \theta$ = 
+\$\pln{sin} \pln{theta}\$.
+
+
+\begin{example}
+The congruence relation in modular arithmetic is 
+expressed using \pln{bmod}, {\it not} \pln{mod}. 
+Compare $18 \equiv 8 \bmod 5$ and $18 \equiv 8 \mod 5$.
+There is too much space between the 8 and the ``mod" in the second one 
+(bmod is short for ``binary mod," as in``mod as a binary relation").
+\end{example}
+
+
+Things get negated by putting \pln{not} in front of them, leading to 
+$\not=, \not\equiv, \not\approx$, and so on. 
+
+
+\section{Phancy Phonts}\label{fontsec}
+
+To get bold ordinary text, use \pln{bf}: {\bf this} = 
+$\{$\pln{bf this}$\}$.
+If you don't mark the start and end of your bold text with 
+curly braces, then {\bf everything following it is in bold}.
+To get bold in math mode, use \pln{mathbf}:
+${\mathbf v} \not= {\mathbf 0}$ is 
+\verb1${\mathbf v} \not= {\mathbf 0}$1. 
+Do you want {\it italics}?  
+Or $\mathcal{CALLIGRAPHIC}$?
+Or \underline{underlines}? Or $\mathfrak{gothic}$? 
+Or $\mathfrak{GOTHIC}$?  $\mathfrak{Don't \ write 
+\ your \ paper \ this \ way}$.
+
+
+
+
+\section{Lists}
+
+Here is the same two-item list in three forms, 
+using \bgn{itemize}, \nd{itemize} 
+for the first two and 
+\bgn{enumerate}, \nd{enumerate}
+for the third.  Look at the file to see how the (default) 
+bullets are turned into letters in the second version.
+
+\begin{itemize}
+
+\item
+$e^{i\pi} = -1$
+
+\item
+$65 = 1^2 + 8^2 = 4^2 + 7^2$
+
+\end{itemize}
+
+
+
+\begin{itemize}
+
+\item[(a)]
+$e^{i\pi} = -1$
+
+\item[(b)]
+$65 = 1^2 + 8^2 = 4^2 + 7^2$
+
+\end{itemize}
+
+
+\begin{enumerate}
+
+\item
+$e^{i\pi} = -1$
+
+\item
+$65 = 1^2 + 8^2 = 4^2 + 7^2$
+
+\end{enumerate}
+
+\section{Set-theoretic/Algebraic expressions}
+
+To write that $x$ belongs to $\RR$, use \pln{in}: $x \in \RR$. 
+(If it's not, then $x \not\in \RR$, using \pln{not}\pln{in}.)
+A set is indicated with curly braces, which are typeset as 
+$\sm$$\{$,$\}$$\sm$. For instance, 
+$$
+\{x \in \RR : \sin x = 0\} = \{k\pi : k \in \ZZ\}.
+$$
+It is {\it essential} that you use the backslash 
+with those curly braces or they are not recognized as 
+set braces and they don't show up.  You'd get 
+$$
+{x \in \RR : \sin x = 0} = {k\pi : k \in \ZZ}, 
+$$
+which looks weird. 
+
+Unions and intersections are denoted with 
+\pln{cup} and \pln{cap}: $A \cup B$, $A \cap B$. 
+The empty set is \pln{emptyset}: $\emptyset$. 
+
+
+Square roots: \pln{sqrt}\{{\tt 10}\} = $\sqrt{10}$.  For $n$-th roots, 
+\pln{sqrt[n]}\{{\tt 10}\} = $\sqrt[n]{10}$. To indicate 
+positive and negative (plus/minus) together, 
+\pln{pm}\{2\} = $\pm 2$.
+
+Fractions are produced using 
+\pln{frac}, {\it e.g.}, 
+$\frac{x}{3x-1}$ is \pln{frac}\{{\tt x}\}\{{\tt 3x-1}\}.
+A fraction that is hard to read on a line of text can 
+always be put on its own line using double dollar signs.
+
+Binomial coefficients are $\binom{x}{n} = $ \verb1\binom{x}{n}1.
+
+To indicate collected terms with braces from above, using 
+\pln{overbrace}:
+$$
+\overbrace{x + \cdots + x}^{n \ \text{times}} = nx.
+$$
+If the word ``times'' was not placed in text mode, it 
+comes out in italics, which looks bad:
+$$
+\overbrace{x + \cdots + x}^{n \ times} = nx.
+$$
+Use \pln{underbrace} for braces from below.
+To generate the $\cdots$ between the plus signs, use 
+\pln{cdots} (center dots); 
+don't just type three 
+dots or you get ..., which is too low and cramped.  We'll 
+meet more kinds of dots when we see a big matrix in Section \ref{linalgsec}. 
+
+Here is a factored polynomial:
+$$
+c_nx^n + c_{n-1}x^{n-1} + \cdots + c_1 + c_0 = c_n(x-r_1)(x-r_2)\cdots
+(x-r_n).
+$$
+
+
+Greek letters are entered by writing the name of the letter 
+preceded by a backslash, so 
+$\alpha$ is \pln{alpha}, $\pi$ is \pln{pi}, and $\Pi$ (capital 
+pi) is \pln{Pi}.  
+For instance, the addition formula for the sine function comes out as 
+$$
+\sin(\alpha + \beta) = (\sin \alpha)(\cos \beta) + (\cos \alpha)(\sin \beta).
+$$ 
+There are two versions of epsilon and phi: 
+$\varepsilon$ and $\epsilon$, $\varphi$ and $\phi$. 
+The first choices look better.  They are 
+\pln{varepsilon} and \pln{varphi}.  If you want sums, 
+don't use $\Sigma =$ \pln{Sigma}.  Instead use \pln{sum}, which 
+will adapt the size of the Sigma to the location, which 
+could be in text like $\sum_{n = 1}^N n^2 = N(N+1)(2N+1)/6$ or 
+displayed like 
+$$
+\sum_{n=1}^N n^2 = \frac{N(N+1)(2N+1)}{6}.
+$$
+Similarly, products (if you need them) are \pln{prod}, not \pln{Pi}, 
+{\it e.g.},
+$$
+n! = \prod_{j = 1}^n j.
+$$
+
+
+\section{Some calculus}
+
+
+
+An integral from $a$ to $b$ is
+\verb1\int_a^b1:
+\begin{eqnarray*}
+\int_0^\infty e^{-x}\dd{x} & = &  
+\left.-e^{-x}\phantom{\int}\!\!\!\!\!\right|_{0}^{\infty}\phantom{\int}\\ 
+& = &  
+\lim_{b \rightarrow \infty} (-e^{-b} + 1) \\
+& = & 1.
+\end{eqnarray*}
+The vertical line with the bounds of integration would 
+usually be only as tall as the nearby 
+$e^{-x}$ term.  To get it as tall as the integral sign, 
+a {\it hidden} extra integral sign was inserted 
+right after that $e^{-x}$ using \pln{phantom}\{\pln{int}\} and then 
+several backspace commands \pln{!} brought the vertical line 
+back up to the $e^{-x}$.  Clever! 
+
+
+A double integral is \pln{iint}:
+$$
+\iint_{\RR^2} e^{-x^2-y^2}\,\dd{x}\,\dd{y} = 
+\int_0^\infty\int_0^{2\pi} e^{-r^2}r\,\dd{r}\,\dd{\theta} = \pi.
+$$
+Triple integrals are \pln{iiint}: $\iiint$.
+
+Evaluating a derivative:
+$$
+\left.\frac{\dd}{\dd{x}}\right|_{x=2}\left(\frac{x}{1+x^2}\right) = 
+\left.\frac{1-x^2}{(1+x^2)^2}\right|_{x=2} = -\frac{3}{25}.
+$$
+The command \pln{left(},\pln{right)} is used around 
+$\frac{x}{1+x^2}$ to get properly sized left and 
+right parentheses in the displayed equation.  If you 
+just use plain {\tt (,)} then you get something silly:
+$$
+(\frac{x}{1+x^2}).
+$$
+An ordinary and partial differential equation:
+$$
+\frac{\dd^2{y}}{\dd{x}^2} + (\sin x)\left(\frac{\dd{y}}{\dd{x}}\right)^2 + 
+(\cos x)y = 0, 
+\ \ \ \ 
+\frac{\partial^2 f}{\partial x^2} = \frac{\partial f}{\partial t}.
+$$
+
+\section{Some linear algebra}\label{linalgsec}
+
+
+In text, a $2 \times 2$ matrix is produced 
+using (\bgn{smallmatrix},\nd{smallmatrix}).
+For instance, look at this: 
+$(\begin{smallmatrix}a&b\\c&d\end{smallmatrix})$. 
+If you forget to include the parentheses, then you 
+get a poor floating array $\begin{smallmatrix}a&b\\c&d\end{smallmatrix}$ 
+which very much wants its parentheses!
+
+Here are matrices multiplied by vectors
+$$
+\left(
+\begin{array}{ccc}
+1 & 2 & 0 \\
+4 & 9 & 1 \\
+3 & 2 & 0 \\
+9 & 1 & 3 
+\end{array}
+\right)
+\left(
+\begin{array}{c}
+5 \\ 4 \\ 3 
+\end{array}
+\right), 
+\ \ \ \ \ 
+\left[
+\begin{array}{ccc}
+1 & 2 & 0 \\
+4 & 9 & 1 \\
+3 & 2 & 0 \\
+9 & 1 & 3 
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+5 \\ 4 \\ 3 
+\end{array}
+\right].
+$$
+They are produced using 
+\bgn{array},\nd{array}.
+The different borders are produced using 
+\pln{left(},\pln{right)} in the code for the first matrix and 
+\pln{left[},\pln{right]} in the code for the second matrix. 
+The command {\tt $\{$ccc$\}$}
+which is in the \latex{} 
+code for the matrices after \bgn{array}
+tells \latex{} that there are 3 columns (so 3 {\tt c}'s). 
+The column vectors (which are really 1-column matrices) 
+are produced using {\tt $\{$c$\}$} after 
+\bgn{array}.
+A monster matrix can be done too:
+$$
+\left(
+\begin{array}{ccccc}
+\lambda & 1 & \cdots & 0 & 0 \\
+0 & \lambda & \cdots & 0 & 0 \\
+\vdots & \vdots & \ddots & \vdots & \vdots\\
+0 & 0 & \cdots & \mu & 4 \\
+0 & 0 & \cdots & 1 & \nu \\
+\end{array}
+\right).
+$$
+Here the command 
+{\tt $\{$ccccc$\}$} is used since this matrix is built out of 
+5 columns.
+Notice the effect of \pln{cdots} (center dots), 
+\pln{vdots} (vertical dots), and \pln{ddots} (diagonal dots) 
+in the code which generated this nice matrix. 
+
+Instead of surrounding a matrix with parentheses, we can 
+use other delimiters such as 
+\pln{left|},\pln{right|} and it looks like a determinant: 
+$$
+\det A = 
+\left|
+\begin{array}{cc}
+a & b \\
+c & d 
+\end{array}
+\right| = ad - bc.
+$$
+
+Perpendicularity is indicated with \pln{perp} and the transpose 
+operation with \pln{top}:
+$$
+{\mathbf v} \perp {\mathbf w}, \ \ \ V^\perp, \ \ \ A^\top.
+$$
+
+The length of a vector can be indicated with double parallel lines, which 
+are produced with
+\pln{Vert}: 
+$\Vert$ (the capital V is important, since 
+\pln{vert} 
+outputs $\vert$, a single 
+vertical line), 
+so the Cauchy-Schwarz inequality says 
+$$
+|{\mathbf v}\cdot{\mathbf w}| \leq \Vert{\mathbf v}\Vert\Vert{\mathbf w}\Vert.
+$$
+If you literally typed in parallel lines as $||$, then the 
+inequality looks less nice:
+$$
+|{\mathbf v}\cdot{\mathbf w}| \leq ||{\mathbf v}||||{\mathbf w}||.
+$$
+
+
+A common notation for inner products is 
+$\langle {\mathbf v},{\mathbf w}\rangle$.  These 
+brackets are obtained using \pln{langle},\pln{rangle}. 
+If you use ordinary less than and greater than signs, you 
+get the uglier $<{\mathbf v},{\mathbf w}>$.
+
+
+\section{Tables}
+
+Table \ref{tab1} gives a two-column table without borders. 
+In Table \ref{tab2} there are boundaries added all around 
+and a double line down the middle. 
+The code for tables can be found in the file.  
+The first table has the columns centered using 
+{\tt $\{$c|c$\}$}, while the second table 
+has its first column left justified and 
+its second column right justified using 
+{\tt $\{$|l||r|$\}$}.  The vertical lines 
+appearing in these commands tell \latex{} 
+where to place vertical lines in the tables. 
+Appropriately placed \pln{hline} commands 
+tell \latex{} where to put horizontal lines. 
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{c|c} 
+Integers & Real polynomials \\ \hline
+Positive & Monic \\
+Prime & Irreducible \\
+Composite & Reducible \\
+$\pm 1$ & Non-zero constant \\ 
+?? & Derivative \\
+\end{tabular}
+\caption{Useful analogies}\label{tab1}
+\end{center}
+\end{table}
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{|l|||r|} \hline 
+Integers & Real polynomials \\ \hline
+Positive & Monic \\
+Prime & Irreducible \\
+Composite & Reducible \\
+$\pm 1$ & Non-zero constant \\ 
+?? & Derivative \\ \hline
+\end{tabular}
+\caption{Useful analogies}\label{tab2}
+\end{center}
+\end{table}
+
+
+
+\section{Bibliography}
+
+Some sample books, web pages, and articles (from journals and conference 
+proceedings) appear below in the reference section, which is generated using 
+\bgn{thebibliography}\{{\tt N}\},
+\nd{thebibliography}, 
+where {\tt N} 
+is the number of references.  (To be honest, 
+{\tt N} can be any number,  
+for instance in the file 
+it is actually 5 while there are 6 references; one was added 
+at the last minute.  Just {\it some} number belongs in the 
+{\tt N} position.)
+If you want to cite a reference use 
+\pln{cite}$\{${\tt name}$\}$ (not \pln{ref}$\{${\tt name}$\}$), 
+like this: \pln{cite}$\{${\tt irros}$\}$ is \cite{irros}.  If you 
+want to cite a page or specific result from a reference, you could do 
+\cite[p.~340]{irros}, \cite[pp.~340--342]{irros}, or 
+\cite[Theorem 20.1.1]{irros}. 
+Place a tilde in the space between p. or pp. and the page 
+numbers to prevent a line break in that space.  Take a look at the file 
+to see how the citations were produced just above to know what this is about.
+
+
+\begin{thebibliography}{5}
+
+\bibitem{gt}
+B. H. Gross and J. T. Tate, Commentary on algebra, pp.~335--336 in: 
+``A Century of Mathematics in America, Part II,'' Amer. Math. Soc., 
+Providence, 1989.
+
+\bibitem{irros}
+K. Ireland and M. Rosen, ``A Classical Introduction to Modern 
+Number Theory,'' 2nd ed., Springer-Verlag, New York, 1990.
+
+\bibitem{unabomber}
+T. J. Kaczynski, Another proof of Wedderburn's theorem, 
+{\it Amer. Math. Monthly} {\bf 71} (1964), 652--653.
+
+
+\bibitem{knus}
+M-A. Knus, A. Merkurjev, M. Rost, J-P. Tignol, 
+``The Book of Involutions,'' Amer. Math. Society, Providence, 1998.
+
+\bibitem{roquette}
+P. Roquette, Class field theory in characteristic $p$, its origin 
+and development, pp.~549--631 in: ``Class field theory -- its centenary 
+and prospect,'' Math. Soc. Japan, Tokyo, 2001.
+
+\bibitem{sloane}
+N. J. A. Sloane, On-line Encyclopedia of Integer Sequences, 
+{\tt http://www.research.att.com/$\sim$njas/ 
+sequences/}.
+
+\end{thebibliography}
+
+\end{document}

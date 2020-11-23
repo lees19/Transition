@@ -1,0 +1,160 @@
+\documentclass[10pt]{exam}
+\firstpageheader{Math 2550 Fall 2020}{Exam 1}{Instructor:  J. Haga}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb, graphicx, enumerate, mathrsfs}
+
+
+\begin{document}
+
+
+\newcommand{\dd}{\textrm{d}}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\proofdone}{\hfill $\square$}
+
+\vskip 0.5cm
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item 
+        The statement when $n = 0$ is true since: 
+        \begin{gather}
+            P(0) = c_0x^0 = c_0
+        \end{gather}
+        Since $P(0) = c_0$ and $c_0$ is a constant, $P(0)$ is a continuous function.
+        \item 
+        Assume $P(N)$. Now consider $P(N+1)$. Then, 
+        \begin{gather*}
+            P(N+1) = c_0 + c_1x + c_2x^2 + \dots + c_Nx^N + c_{N+1}x^{N+1}\\
+            P(N+1) = c_0 + x(c_1 + c_2x + \dots + c_Nx^{N-1} + c_{N+1}x^{N})
+        \end{gather*}
+        Since $c_1 + c_2x + \dots + c_Nx^{N-1} + c_{N+1}x^{N}$ is a $N^{th}$ degree
+        polynomial with real coefficients, $x(c_1 + c_2x + \dots + c_Nx^{N-1} + c_{N+1}x^{N})$
+        is a continuous function. Since $c_0$ is a constant function, $c_0 + x(c_1 + c_2x + \dots + c_Nx^{N-1} + c_{N+1}x^{N})$ 
+        is a continuous function. 
+        \item 
+        Thus, by the Principle of Mathematical Induction, all polynomial functions with real 
+        coefficients are continuous functions. 
+    \end{enumerate}
+    
+    \pagebreak
+    \item 
+    Assume the Intermediate Value Theorem, and assume $f(x) = x^2 - 2$ on the interval 
+    $[a, b]$. By the theorem proved by question 1, $f(x)$ is continuous, since $x^2$ and 
+    $-2$ are both continuous functions, and the sum of two continuous functions is continuous.
+    Then, since $f(1) = -1 < 0$ and $f(2) = 2 > 0$, by the Intermediate Value Theorem, 
+    we know $\exists c \in (a, b) \text{ such that} f(c) = 0$. Therefore, at some point $c$, 
+    $f(c) = c^2 - 2 = 0$. Solving for $c$, we get $c^2 = 2$ and thus, $c = \sqrt{2}$. 
+    To prove $\sqrt{2}$ is irrational, assume to the contrary, $\sqrt{2}$ is rational. 
+    Then, $\sqrt{2}$ can be written by two integers $p$ and $q$ such that 
+    $\sqrt{2} = \frac{p}{q}$ and $\frac{p}{q}$ are in lowest terms. Then, $2 = \frac{p^2}{q^2}$
+    Thus, $2q^2 = p^2$ and from a previously proven theorem, if $p^2$ is even, $p$ is also even since 
+    if $p$ was odd, $p^2$ would also be odd. Since $p$ is even, $p = 2k$ for some integer k. 
+    Since $p = 2k$, $p^2 = 4k^2$. Thus, $2q^2 = 4p^2$. By cancellation, $q^2 = 2p^2$. Since 
+    $q^2$ is even, q must also be even. This is a contradiction, since we assumed $p$ and $q$ 
+    were in lowest terms. Therefore, $\sqrt{2}$ must be an irrational number. 
+
+    \pagebreak
+    %well, the gcd(43, 18) is exactly one. Since gcd(43, 18) = 1 is the smallest 
+    %positive linear combination of 43x + 18y, that's gonna lead us to Z
+    %if the smallest linear combination is 1, then we can take any multiple of 1
+    %aka all of Z, so this is clearly true. 
+    \item 
+    Case $S \subseteq \ZZ$\\
+    Let $x$ be an arbitrary element of $S$. Since $x\in S$, $x$ is some number 
+    of the form $43j + 18k$ for some integers $j, k \in \ZZ$. Since $j$ is an integer, 
+    $43j$ is an integer and since $k$ is an integer, $18k$ is an integer by closure. 
+    Since $43j$ and $18k$ are integers, their sum, $43j + 18k$ is an integer. Since
+    $x$ was arbitrary, $S \subseteq \ZZ$. 
+    \vskip1em
+    %pick arbitrary, 
+    Case $\ZZ \subseteq S$\\
+    Let $y$ be an arbitrary element in $\ZZ$. Since $43$ and $18$ are relatively 
+    prime, there exist two integers $n$ and $m$, such that $1 = 43n + 18m$. 
+    Since $1 = 43n + 18m$, $y = 43ny + 18my$. Since $y$ was arbitrary, it follows
+    that $\ZZ \subseteq S$. 
+    %Suppose x is an arbitrary element in Z. Then, x = 1*x. Since 1 is the smallest 
+    %linear combination of 43 and 18, 1 = 43j + 18k. Since 1 = 43j + 18k, 
+    %(43j + 18k) * x = 43xj + 18xk = x. Since x is an element of Z, 
+    %xj and xk are integers. Since 43 and xj are integers, 43xj is an integer. 
+    %Since 18 and xk are integers, 18xk is an integer. Since 43xj and 18xk are 
+    %integers, 43xj + 18xk is an integer. Since 43xj + 18xk = x and x was arbitrary, 
+   % Z is a subset of S. 
+
+    Thus, since S is a subset of Z and Z is a subset of S, S = Z
+    \pagebreak
+    %so, because these are sets, to prove an equivalence, we find the interval 
+    %that we think is correct, then prove that they're both subsets of each other
+    \begin{enumerate}
+        \item 
+        Case $\bigcap_{r\in \RR^+}A_r \subseteq \varnothing$\\
+        Assume for every real number, the set $A_r$ is the interval $[\frac{r+1}{r}, \frac{5r + 3}{r})$.
+        If $r = 2$ then, $A_2 = [1.5, 6.5)$. If $r = \frac{1}{6}$ then $A_{\frac{1}{6}} = [7, 23)$. 
+        Thus we have found two $A_r$ which are disjoint. Thus since the intersection 
+        of these two sets is the null set, the intersection of every $A_r$ must be the 
+        null set. Thus the intersection of all of the $A_r$ is a subset of the null set.
+        \vskip1em
+
+        Case $\varnothing \subseteq \bigcap_{r\in \RR^+}A_r$\\
+        Since the null set is a subset of every set, we find that the null set is must be 
+        a subset of the infinite intersection of the $A_r$. Thus, the null set is a subset
+        of the infinite intersection of $A_r$. 
+        \vskip1em
+        
+        Thus, since the infinite intersection is a subset of the null set and the null set
+        is a subset of the infinite intersection, $\bigcap_{r\in \RR^+}A_r = \varnothing$
+        \pagebreak
+        \item 
+        Case $\bigcup_{r\in \RR^+}A_r \subseteq (1, \infty)$\\
+        Let $x$ be an arbitrary element of $\bigcup_{r\in \RR^+}$. 
+        Since $x\in \bigcup_{r\in \RR^+}A_r$, $x$ must be in at least one of the $A_r$. 
+        Since $x\in A_r$ for some positive real number $r$, 
+        $x\in [\frac{r+1}{r}, \frac{5r+3}{r}]$, thus $\frac{r+1}{r} \leq x$.
+        Since $r$ is a positive real number, $r < r+1$. Since $r<r+1$, $1 < \frac{r+1}{r}$. 
+        Since $1 < \frac{r+1}{r} \leq x$, $1 < x$. Since $x$ was arbitrary,
+        $\bigcup_{r\in \RR^+}A_r \subseteq (1, \infty)$
+
+
+        %Let x be an arbitrary element of the infinite union of the $A_r$. Then, 
+        %since x is in the union of $A_r$, x is in at least one of the $A_r$. Since 
+        %x is in at least one of the $A_r$, x is in at least one of the intervals 
+        %$[\frac{r+1}{r}, \frac{5r+3}{r}]$. Since x is in at least one of these intervals,
+        %x is greater than or equal to $\frac{r+1}{r}$ and less than or equal to 
+        %$\frac{5r+3}{r}$. Since r is any real number, if we let r approach infinity, 
+        %$\frac{r+1}{r}$ approaches 1. If we let r approach 0, $\frac{5r+3}{r}$ approaches
+        %infinity. Thus, x is greater than 1 and less than infinity. Thus, x must be in 
+        %the interval (1, inf). Since x was arbitrary, the infinite union of the $A_r$ 
+        %is a subset of (1, inf). 
+
+        \vskip1em
+        Case $(1, \infty) \subseteq \bigcup_{r\in \RR^+ A_r}$\\
+        Let $y$ be an arbitrary element of the interval $(1, \infty)$. We want to show
+        $y\in [\frac{r+1}{r}, \frac{5r+3}{r}]$. Let $y = \frac{r+1}{r}$. Then, by algebra, 
+        $r = \frac{1}{(y-1)}$. By closure, $r$ is a real number. 
+        Since $y > 1$, $y-1 > 0$. Thus, $\frac{1}{y-1}$ is positive. Thus, we have found a 
+        positive real number $r = \frac{1}{(y-1)}$ for which $y\in A_r$. Since $y$ was arbitrary, 
+        $(1, \infty) \subseteq \bigcup_{r\in \RR^+ A_r}$. 
+        
+        %Let x be an arbitrary element of the interval (1, inf). Since x is in (1, inf), 
+        %x is greater than 1 and less than inf. Since $\frac{r+1}{r}$ approaches 1 as 
+        %r approaches infinity, 1 < $\lim_{r\rightarrow \infty}\frac{r+1}{r} \leq$ x. 
+        %Since as r approaches zero, $\frac{5r+3}{r}$ approaches infinity, 
+        %x < $\lim_{r\rightarrow 0} \frac{5r+3}{r}$ < $\infty$. Since 
+        %$\lim_{r\rightarrow \infty}\frac{r+1}{r} \leq x \leq \lim_{r\rightarrow 0} \frac{5r+3}{r}$, 
+        %x must be in at least one of the $A_r$. 
+
+        Thus, since each subset is a subset of the other, $\bigcup_{r\in \RR^+} = (1, \infty)$
+    \end{enumerate}
+
+
+
+
+    
+\end{enumerate}
+
+    
+\end{document}

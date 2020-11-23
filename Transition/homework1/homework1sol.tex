@@ -1,0 +1,264 @@
+\documentclass{article} 
+
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+
+\usepackage{fullpage}
+\usepackage[margin = .75 in]{geometry}
+\usepackage[leqno]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+
+\usepackage{graphicx,color,url,hyperref}
+\usepackage{epsfig}
+\fancyhf{}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+
+\newcommand{\NN}{\mathbf N}
+\newcommand{\RR}{\mathbf R}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\ZZ}{\mathbf Z}
+\newcommand{\ZZn}[1]{\ZZ/{#1}\ZZ}
+\newcommand{\QQ}{\mathbf Q}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\rr}{\mathbb R}
+\newcommand{\cc}{\mathbb C}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\zzn}[1]{\zz/{#1}\zz}
+\newcommand{\qq}{\mathbb Q}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\latex}{\LaTeX}
+\newcommand{\tex}{\TeX}
+\newcommand{\dd}{{\rm d}}
+\newcommand{\sm}{\setminus} 
+
+\title{Homework 1 Solutions}
+\author{Sunny Lee}
+\date{September 10, 2020}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{9.16.2020}
+\lhead{Sunny Lee}
+\chead{Math 2550 HW1}
+\rfoot{Page \thepage}
+
+\begin{document}
+    
+    \begin{enumerate}
+        \item Which of the following are propositions? 
+              Give truth values for each proposition.
+            \begin{enumerate}
+                \item Jack Nicholson was born in Honolulu.
+                    \vskip1em
+                    \emph{Solution.} This is a proposition. False. 
+                    \vskip1em
+                \item What time is the train arriving?
+                    \vskip1em
+                    \emph{Solution.} This is not a proposition. There is no truth value.
+                    \vskip1em
+                \item 2 + 2 = 4
+                    \vskip1em
+                    \emph{Solution.} This is a proposition. True.
+                    \vskip1em
+                \item 2 + 2 = x
+                    \vskip1em
+                    \emph{Solution.} This is not a proposition. 
+                    \vskip1em
+            \end{enumerate}
+        \item For each pair of statements, determine whether the conjunction P $\wedge$ Q and the disjunction P $\vee$ Q are true
+            \begin{enumerate}
+                \item $P: \pi < 4, Q: e < 2$
+                    \vskip1em
+                    \emph{Solution.}
+                    \begin{table}[ht]
+                        \begin{center}
+                            \begin{tabular}{c|c|c|c} 
+                            P & Q & P $\wedge$ Q & P $\vee$ Q \\ \hline
+                            T & F & F & T\\
+                            \end{tabular}
+                        \end{center}
+                    \end{table}
+                    \vskip1em
+                \item P: Germany is the capital of Sweden, Q: The prime divsors of 15 are 2 and 5.
+                    \vskip1em
+                    \emph{Solution.} 
+                    \begin{table}[ht]
+                        \begin{center}
+                            \begin{tabular}{c|c|c|c} 
+                            P & Q & P $\wedge$ Q & P $\vee$ Q \\ \hline
+                            F & F & F & F\\
+                            \end{tabular}
+                        \end{center}
+                    \end{table}
+                    \vskip1em
+                \item P: Mexico is south of Alaska, Q: 1738 is a multiple of 11
+                    \vskip1em
+                    \emph{Solution.}
+                    \begin{table}[ht]
+                        \begin{center}
+                            \begin{tabular}{c|c|c|c} 
+                            P & Q & P $\wedge$ Q & P $\vee$ Q \\ \hline
+                            T & T & T & T\\
+                            \end{tabular}
+                        \end{center}
+                    \end{table}  
+                    \vskip1em
+            \end{enumerate}
+        \pagebreak
+        \item Make a truth table for each of the following propositional forms.
+            \begin{enumerate}
+                \item $(P \vee Q) \wedge \neg R$
+                    \vskip1em
+                    \emph{Solution.} 
+                    \begin{table}[ht]
+                        \begin{center}
+                            \begin{tabular}{c|c|c|c|c|c} 
+                            $P$ & $Q$ & $R$ & $\neg R$ & $P \vee Q$ & $(P \vee Q) \wedge \neg R$\\ \hline
+                            T & T & T & F & T &F\\
+                            T & T & F & T & T &T\\
+                            T & F & T & F & T &F\\
+                            T & F & F & T & T &T\\
+                            F & T & T & F & T &F\\
+                            F & T & F & T & T &T\\
+                            F & F & T & F & F &F\\
+                            F & F & F & T & F &F\\
+                            \end{tabular}
+                        \end{center}
+                    \end{table}
+                    \vskip1em
+                \item $Q \vee (P\vee \neg Q)$
+                    \vskip1em
+                    \emph{Solution.} 
+                    \begin{table}[ht]
+                        \begin{center}
+                            \begin{tabular}{c|c|c|c|c} 
+                            $P$ & $Q$ & $\neg Q$ & $P\vee \neg Q$ & $Q \vee (P\vee \neg Q)$\\ \hline
+                            T & T & F & T & T \\
+                            T & F & T & T & T \\
+                            F & T & F & F & T \\
+                            F & F & T & T & T \\
+                            \end{tabular}
+                        \end{center}
+                    \end{table}
+                    \vskip1em
+                \item $P \Rightarrow (Q \wedge P)$
+                    \vskip1em
+                    \emph{Solution.} 
+                    \begin{table}[ht]
+                        \begin{center}
+                            \begin{tabular}{c|c|c|c} 
+                            $P$ & $Q$ & $Q \wedge P$ & $P \Rightarrow (Q \wedge P)$\\ \hline
+                            T & T & F & F \\
+                            T & F & T & T \\
+                            F & T & F & T \\
+                            F & F & T & T \\
+                            \end{tabular}
+                        \end{center}
+                    \end{table}
+                    \vskip1em
+                \pagebreak
+                \item $(P \vee Q) \Rightarrow (P \wedge Q)$
+                    \vskip1em
+                    \emph{Solution.} 
+                    \begin{table}[ht]
+                        \begin{center}
+                            \begin{tabular}{c|c|c|c|c} 
+                            $P$ & $Q$ & $P \vee Q$ & $P \wedge Q$ & $(P \vee Q) \Rightarrow (P \wedge Q)$\\ \hline
+                            T & T & T & T &T\\
+                            T & F & T & F &F\\
+                            F & T & T & F &F\\
+                            F & F & F & F &T\\
+                            \end{tabular}
+                        \end{center}
+                    \end{table}
+                    \vskip1em
+            \end{enumerate}
+        \item Suppose that $P$ is equivalent to $Q$ and $R$ is equivalent to $S$. 
+              Explain why it must be the case that $P \vee S$
+              is equivalent to $Q \vee R$. 
+            \vskip1mm
+            \emph{Solution.} 
+                If $P$ is equivalent to $Q$ and $S$ is equivalent to $R$ then, 
+                you can substitute the proposition $P$ with $Q$ and $S$ with $R$ 
+                and vice versa. For example with, $P \vee S$, you can substitute
+                $P$ with $Q$ and as $P$ is equivalent to $Q$, the proposition
+                $Q \vee S$ will still hold the same truth table, therefore equivalent
+        \item Identify the antecedent and consequent for each of the following conditional sentences. 
+              Assume that a, b, and f represent some fixed sequence, integer,
+              or function, respectively
+            \begin{enumerate}
+                \item If the moon is made of cheese, then 8 is an irrational number.
+                \vskip1em
+                \emph{Solution.} \\
+                    Antecedent: the moon is made of cheese \\
+                    Consequent: 8 is an irrational number
+                \vskip1em
+                \item $b$ divides 25 only if $b$ divides 100.
+                \vskip1em
+                \emph{Solution.} \\
+                    Antecedent: $b$ divides 100 \\
+                    Consequent: $b$ divides 25
+                \vskip1em
+                \item $f$ is differentiable if $f$ is continuous.
+                    \vskip1em
+                    \emph{Solution.} \\
+                        Antecedent: $f$ is continuous\\
+                        Consequent: $f$ is differentiable
+                    \vskip1em
+                \item The fish bite whenever the moon is full.
+                    \vskip1em
+                    \emph{Solution.} \\
+                        Antecedent: The moon is full\\
+                        Consequent: The fish will bite
+                    \vskip1em
+            \end{enumerate}
+        \item Which of the following propositions are true?
+            \begin{enumerate}
+                \item A parallelogram is 5 sided iff 14 is prime.
+                    \vskip1em
+                    \emph{Solution.} 
+                        True
+                \item $\forall x, y, z \in \zz$, $xy = xz$ only if $y = z$
+                    \vskip1em    
+                    \emph{Solution.} %help! ask question about this one
+                        True 
+                \item $\forall x \in \rr, x^2 \geq 0 $ if $ x > 0.$
+                    \vskip1em    
+                    \emph{Solution.} 
+                        True.
+            \end{enumerate}
+        \item Give, if possible, an example of a true conditional sentence for which
+            \begin{enumerate}
+                \item the converse is false.
+                    \vskip1em
+                    \emph{Solution.} 
+                        If the United States is in Europe, then Europe is a continent
+                \item the contrapositive is true.
+                    \vskip1em
+                    \emph{Solution.} 
+                        If $1 \in \nn$ then $2 \in \nn$
+            \end{enumerate}
+        \item Give, if possible, an example of a false conditional sentence for which
+            \begin{enumerate}
+                \item the converse is false.
+                    \vskip1em
+                    \emph{Solution.} 
+                        Not possible, as the only way a condition is false is if the
+                        antecedent is true and the consequent is false. By taking the 
+                        converse, that would result in the antecedent being false and
+                        the consequent being true which makes the conditional true.
+                \item the contrapositive is true.
+                    \vskip1em
+                    \emph{Solution.}
+                        If $1 \in \nn$ then $2.4 \in \nn$ 
+            \end{enumerate}
+    \end{enumerate}
+
+\end{document}

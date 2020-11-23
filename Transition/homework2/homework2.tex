@@ -1,0 +1,132 @@
+\documentclass{article} 
+
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+
+\usepackage{fullpage}
+\usepackage[margin = .75 in]{geometry}
+\usepackage[leqno]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+
+\usepackage{graphicx,color,url,hyperref}
+\usepackage{epsfig}
+\fancyhf{}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+
+\newcommand{\NN}{\mathbf N}
+\newcommand{\RR}{\mathbf R}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\ZZ}{\mathbf Z}
+\newcommand{\ZZn}[1]{\ZZ/{#1}\ZZ}
+\newcommand{\QQ}{\mathbf Q}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\rr}{\mathbb R}
+\newcommand{\cc}{\mathbb C}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\zzn}[1]{\zz/{#1}\zz}
+\newcommand{\qq}{\mathbb Q}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\latex}{\LaTeX}
+\newcommand{\tex}{\TeX}
+\newcommand{\dd}{{\rm d}}
+\newcommand{\sm}{\setminus} 
+
+\title{Homework 2 Solutions}
+\author{Sunny Lee}
+\date{September 10, 2020}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{9.16.2020}
+\lhead{Sunny Lee}
+\chead{Math 2550 HW2}
+\rfoot{Page \thepage}
+
+\begin{document}
+    \begin{enumerate}
+        \item \emph{Solution.}
+            \begin{enumerate}
+                \item Everyone has sent an email to someone
+                \item Everyone has sent an email to everybody
+                %there exists a p st if every q has sent an email to p, 
+                %and if every t has sent an email to r, then r is p 
+                \item Every q has sent an email to some p and for every r, if every t has sent an email to r, then r is p
+            \end{enumerate}
+        \item \emph{Solution.} 
+            $\exists!p$ $(\forall q S(q, p))$
+        \item \emph{Solution.}
+            Suppose $x$ and $y$ are even. Then, from the definition of even, we can 
+            rewrite $x$ and $y$ in the form $x = 2n$ and $y = 2m$ for some integers
+            $n$ and $m$. Then, plugging in $2n$ and $2m$ we are left with the new 
+            equation $5(2n) - 3(2m)^2 + 3$. Since $3 = 2 + 1$, we can rewrite the 
+            equation as $10n - 12m^2 + 2 + 1$. From here, we can factor out a 2 
+            from the first three terms and we are left with an equation of the form
+            $2(5n - 6m^2 + 1) + 1$. Let $s = (5n - 6m^2 + 1)$ Since $n$ and $m$ are integers, and since $\zz$ is 
+            closed under addition and multiplication, $s = (5n - 6m^2 + 1)$ is also an integer.
+            Therefore, since $5x - 3y^2 + 3 = 2(5n - 6m^2 + 1) + 1 = 2s + 1$, 
+            we conclude $5x - 3y^2 + 3$ must be an odd integer if $x$ and $y$ are even. 
+        \item \emph{Solution.} 
+            Suppose $a, b$ and $c$ were integers. Assume $a$ divides $b$ and $c$ divides
+            $d$. In that case, if we factor out $b$ from our number $2bd + b^2d^2$
+            we are left with $b(2d + bd^2)$. Since $a$ divides $b$, we know this whole 
+            number is divisible by $a$. We can also factor out a $d$ from our number: 
+            $d(2b + b^2d)$. Since $c$ divides $d$, we also know our number can be divided by 
+            $c$. Therefore, if we factor out both $b$ and $d$ from our number, we can see
+            that the number must be divisible by both $a$ and $c$. Thus, the number $2bd + b^2d^2$ 
+            is divisible by $ac$
+        \item \emph{Solution.} 
+            Suppose $x \in \rr$ and $x$ is arbitrary. Assume $3-x \leq$ 0.
+            Since $3-x \leq 0$ we can add x from both sides to get $3 \leq x$. Squaring both 
+            sides of the inequality, $9 \leq x^2$ and cubing both sides of the assumed inequality, 
+            $27 \leq x^3$. Adding the two inequalities, $27 + 9 = 36 \leq x^3 + x^2$. 
+            Therefore, $1 < 36 \leq x^3 + x^2$. Thus, if $8-x^3-x^2 \geq 7$, then $3-x > 0$. 
+        \item \emph{Solution.} 
+            Assume $x \in \zz$ and is an arbitrary integer. Assume $x$ is odd. Then, by definition, 
+            $x$ can be written in the form $x = 2(2k) + 1 = 4k + 1$ for some integer $k$. Then, by algebra, 
+            $x^2 - 1 = (4k+1)^2 - 1 = (16k^2+8k+1)-1 = 8(2k^2+k)+1-1 = 8(2k^2+k)$. Since 
+            $x^2-1 = 8(2k^2+k)$ for some arbitrary integer $k$, and because of the closure properties of $\zz$,
+            $x^2-1$ is divisible by 8. Thus, we conclude if 8 does not divide $x^2-1$ then $x$ is even. 
+        \item \emph{Solution.}
+            \begin{enumerate}
+                \item Assume $(x, y) \in \rr^2$ and $(x-1)^2 + (y-4)^2 \leq 9$. Then, this equation can be rewritten as 
+                      the distance between the points $(1, 4)$ and $(x, y)$ less than or equal to 3: $d((1, 4), (x, y)) \leq 3$.
+                      We also know the distance between the two centers of the circles is: $d((1, 4), (2, 3)) = \sqrt{2}$
+                      Therefore, the distance between the two centers and the distance from $(1, 4)$ to any point $(x, y)$
+                      satisfying $d((x, y), (1, 4)) \leq 3$ is at most $\sqrt{2} + 3$, which is less than or equal to $5$: $d((2, 3), (1, 4)) + d((1, 4), (x, y)) \leq \sqrt{2} + 3 \leq 5$.
+                      Therefore, if given any $(x, y) \in \rr$ which satisfies $(x-1)^2 + (y-4)^2 \leq 9$, must also satisfy $(x-2)^2 + (y-3)^2 \leq 25$
+                \item With two circles of radius 3 and 5, we know that if we place the centers of the two circles at certain points, 
+                    we find that the circle with a larger radius can completely cover the one with the samller radius. Therefore, if 
+                    the two centers of the two circles are within the difference between the two radii, we find that every point within
+                    the circle of smaller radius must be contained within the circle of the larger radius. 
+            \end{enumerate}
+            
+        \item \emph{Solution.} 
+            Assume $|m| > |n|$ then, there are four cases: either both are positive, both are 
+            negative, $m$ is negative and $n$ is positive and $m$ is positive and $n$ is negative. 
+            \begin{enumerate}
+                \item Case 1: $m$ and $n$ are both positive\\
+                    If $m$ and $n$ are both positive, then $|m| = m$ and $|n| = n$. Therefore, $m > n$. 
+                    Squaring both sides: $m^2 > n^2$ and subtracting $n^2$ from both sides: $m^2-n^2>0$
+                \item Case 2: m and n are both negative\\
+                    If $m$ and $n$ are both negative, then $|-m| = m$ and $|-n| = n$. Therefore, $m > n$. 
+                    Squaring both sides: $m^2 > n^2$ and subtracting $n^2$ from both sides: $m^2-n^2>0$
+                \item Case 3: m is negative, n is positive\\
+                    If $m$ is negative and $n$ is positive, then $|-m| = m$ and $|n| = n$. Therefore, $m > n$. 
+                    Squaring both sides: $m^2 > n^2$ and subtracting $n^2$ from both sides: $m^2-n^2>0$
+                \item Case 4: m is positive, n is negative\\
+                    If $m$ is positive and $n$ is negative, then $|m| = m$ and $|-n| = n$. Therefore, $m > n$. 
+                    Squaring both sides: $m^2 > n^2$ and subtracting $n^2$ from both sides: $m^2-n^2>0$
+            \end{enumerate}     
+            Since every case prodcues the same result, namely $m^2 - n^2 > 0$, we conclude if $|m| > |n|$, then 
+            $m^2 - n^2 > 0$
+            
+
+    \end{enumerate}
+\end{document}
