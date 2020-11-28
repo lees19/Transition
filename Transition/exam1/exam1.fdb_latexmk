@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1605751414 "c:/Users/lees19/Desktop/homework/Transition/exam1/exam1.tex" "c:/Users/lees19/Desktop/homework/Transition/exam1/exam1.pdf" "exam1" 1605751415
+["pdflatex"] 1606583760 "c:/Users/lees19/Documents/GitHub/Transition/Transition/exam1/exam1.tex" "c:/Users/lees19/Documents/GitHub/Transition/Transition/exam1/exam1.pdf" "exam1" 1606583761
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1233951854 924 9904cf1d39e9767e7a3622f2a125a565 ""
@@ -9,7 +9,6 @@
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1233951854 940 228d6584342e91276bf566bcf9716b83 ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247593067 30251 6afa5cb1d0204815a708a080681d4674 ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247593067 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
-  "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1247593067 37912 07513ec114ac737ab54cea0152f4424b ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1247593067 36281 c355509802a035cadc5f15869451dcee ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247593067 35752 024fb6c41858982481f6968b5fc26508 ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1247593067 31809 8670ca339bf94e56da1fc21c80635e2a ""
@@ -48,13 +47,13 @@
   "C:/Users/lees19/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs7.tfm" 1603113716 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
   "C:/Users/lees19/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1599690269 10050588 c41f1032b0a94649b43c5ed51509368d ""
   "C:/Users/lees19/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1599690255 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
-  "c:/Users/lees19/Desktop/homework/Transition/exam1/exam1.aux" 1605751415 305 505b8f028cb4d099492f8552e0452dd9 ""
-  "c:/Users/lees19/Desktop/homework/Transition/exam1/exam1.tex" 1605751413 8586 71143222827c4c5c758a16e86046345b ""
-  "exam1.aux" 1605751415 305 505b8f028cb4d099492f8552e0452dd9 "pdflatex"
-  "exam1.tex" 1605751413 8586 71143222827c4c5c758a16e86046345b ""
+  "c:/Users/lees19/Documents/GitHub/Transition/Transition/exam1/exam1.aux" 1606583761 305 505b8f028cb4d099492f8552e0452dd9 ""
+  "c:/Users/lees19/Documents/GitHub/Transition/Transition/exam1/exam1.tex" 1606583757 8757 f8443d9cfa2a6c517f34611ed367d69c ""
+  "exam1.aux" 1606583761 305 505b8f028cb4d099492f8552e0452dd9 "pdflatex"
+  "exam1.tex" 1606583757 8757 f8443d9cfa2a6c517f34611ed367d69c ""
   (generated)
   "exam1.aux"
-  "exam1.pdf"
   "exam1.log"
-  "c:/Users/lees19/Desktop/homework/Transition/exam1/exam1.log"
-  "c:/Users/lees19/Desktop/homework/Transition/exam1/exam1.pdf"
+  "c:/Users/lees19/Documents/GitHub/Transition/Transition/exam1/exam1.pdf"
+  "exam1.pdf"
+  "c:/Users/lees19/Documents/GitHub/Transition/Transition/exam1/exam1.log"

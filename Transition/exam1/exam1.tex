@@ -19,27 +19,26 @@
 \vskip 0.5cm
 \begin{enumerate}
     \item 
-    \begin{enumerate}
-        \item 
         The statement when $n = 0$ is true since: 
         \begin{gather}
-            P(0) = c_0x^0 = c_0
+            Q(0) = c_0x^0 = c_0
         \end{gather}
-        Since $P(0) = c_0$ and $c_0$ is a constant, $P(0)$ is a continuous function.
-        \item 
-        Assume $P(N)$. Now consider $P(N+1)$. Then, 
+        Since $Q(0) = c_0$ and $c_0$ is a constant, $Q(0)$ is a continuous function.
+
+        Assume $Q(n)$ for some number $n\in \NN$. Consider the polynomial 
+        $p(x) = c_0 + c_1x + c_2x^2 + \dots + c_Nx^N + c_{N+1}x^{N+1}$. By algebra: 
         \begin{gather*}
-            P(N+1) = c_0 + c_1x + c_2x^2 + \dots + c_Nx^N + c_{N+1}x^{N+1}\\
-            P(N+1) = c_0 + x(c_1 + c_2x + \dots + c_Nx^{N-1} + c_{N+1}x^{N})
+            p(x) = c_0 + c_1x + c_2x^2 + \dots + c_Nx^N + c_{N+1}x^{N+1}\\
+            p(x) = c_0 + x(c_1 + c_2x + \dots + c_Nx^{N-1} + c_{N+1}x^{N})
         \end{gather*}
         Since $c_1 + c_2x + \dots + c_Nx^{N-1} + c_{N+1}x^{N}$ is a $N^{th}$ degree
         polynomial with real coefficients, $x(c_1 + c_2x + \dots + c_Nx^{N-1} + c_{N+1}x^{N})$
         is a continuous function. Since $c_0$ is a constant function, $c_0 + x(c_1 + c_2x + \dots + c_Nx^{N-1} + c_{N+1}x^{N})$ 
         is a continuous function. 
-        \item 
+
         Thus, by the Principle of Mathematical Induction, all polynomial functions with real 
         coefficients are continuous functions. 
-    \end{enumerate}
+
     
     \pagebreak
     \item 
@@ -63,12 +62,16 @@
     %positive linear combination of 43x + 18y, that's gonna lead us to Z
     %if the smallest linear combination is 1, then we can take any multiple of 1
     %aka all of Z, so this is clearly true. 
+    \begin{gather*}
+        S = \{z\in \RR : \exists j, k\in \ZZ \,\ s.t.\,\ z = 43j+18k\}
+    \end{gather*}
     \item 
     Case $S \subseteq \ZZ$\\
-    Let $x$ be an arbitrary element of $S$. Since $x\in S$, $x$ is some number 
-    of the form $43j + 18k$ for some integers $j, k \in \ZZ$. Since $j$ is an integer, 
+    Let $x$ be an arbitrary element of $S$. Since $x\in S$, $x$ is some real number 
+    of the form $43j + 18k$ for some integers $j, k \in \ZZ$ such that $x = 43j + 18k$.
+    Since $j$ is an integer, 
     $43j$ is an integer and since $k$ is an integer, $18k$ is an integer by closure. 
-    Since $43j$ and $18k$ are integers, their sum, $43j + 18k$ is an integer. Since
+    Since $43j$ and $18k$ are integers, their sum, $43j + 18k$, is an integer. Since
     $x$ was arbitrary, $S \subseteq \ZZ$. 
     \vskip1em
     %pick arbitrary, 
@@ -131,13 +134,13 @@
         %is a subset of (1, inf). 
 
         \vskip1em
-        Case $(1, \infty) \subseteq \bigcup_{r\in \RR^+ A_r}$\\
+        Case $(1, \infty) \subseteq \bigcup_{r\in \RR^+}A_r$\\
         Let $y$ be an arbitrary element of the interval $(1, \infty)$. We want to show
         $y\in [\frac{r+1}{r}, \frac{5r+3}{r}]$. Let $y = \frac{r+1}{r}$. Then, by algebra, 
         $r = \frac{1}{(y-1)}$. By closure, $r$ is a real number. 
         Since $y > 1$, $y-1 > 0$. Thus, $\frac{1}{y-1}$ is positive. Thus, we have found a 
         positive real number $r = \frac{1}{(y-1)}$ for which $y\in A_r$. Since $y$ was arbitrary, 
-        $(1, \infty) \subseteq \bigcup_{r\in \RR^+ A_r}$. 
+        $(1, \infty) \subseteq \bigcup_{r\in \RR^+}A_r$. \\
         
         %Let x be an arbitrary element of the interval (1, inf). Since x is in (1, inf), 
         %x is greater than 1 and less than inf. Since $\frac{r+1}{r}$ approaches 1 as 
@@ -147,7 +150,7 @@
         %$\lim_{r\rightarrow \infty}\frac{r+1}{r} \leq x \leq \lim_{r\rightarrow 0} \frac{5r+3}{r}$, 
         %x must be in at least one of the $A_r$. 
 
-        Thus, since each subset is a subset of the other, $\bigcup_{r\in \RR^+} = (1, \infty)$
+        Thus, since each subset is a subset of the other, $\bigcup_{r\in \RR^+} A_r = (1, \infty)$
     \end{enumerate}
 
 
