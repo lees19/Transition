@@ -1,0 +1,108 @@
+\documentclass[10pt]{exam}
+\firstpageheader{Math 2550 Fall 2020}{Final Exam}{Instructor:  J. Haga}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb, graphicx, enumerate, mathrsfs}
+
+
+\begin{document}
+
+
+\newcommand{\dd}{\textrm{d}}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\proofdone}{\hfill $\square$}
+
+\begin{enumerate}
+    \item To show surjectivity, we must show that for any $\forall s\in \NN, f(m,n) = s$. 
+    We let $s\in \NN$. Then, $s$ is even or $s$ is odd. \\
+    Case $s$ even: 
+    If $s$ is even, we can take $s$ to be written in the form $2^a(b)$ where $a\geq 1$ and 
+    $b$ is an odd number. Since $b$ is an odd number, b can be written as $2n-1$. Then, 
+    we can take $a+1 = m$. Thus, $2^{m-1}(2n-1) = 2^ab = s$. Thus if $s$ is even, $f$ is 
+    surjective. \\
+
+    Case $s$ odd: 
+    If $s$ is odd, we can simply take $s = 2n-1$ for some $n\in \NN$. With this and 
+    $m = 1$, we find $2^0(2n-1) = s$. Thus if $s$ is odd, $f$ is surjective. \\
+
+    Thus, in all cases, $f$ is surjective. 
+
+    \pagebreak
+
+    \item 
+    \begin{enumerate}
+        \item 
+        We will proceed by cases. \\
+        Case $x, y > 0$: Assume $f(x) = f(y)$. Since $f(x) = f(y)$ and $x, y > 0$,
+        $2x+1 = 2y+1$. By algebra, $x = y$. Thus, if $x, y > 0$, $f$ is injective. \\
+
+        Case $x, y \leq 0$: Assume $f(x) = f(y)$. Since $f(x) = f(y)$ and $x, y \leq 0$,
+        $3x = 3y$. By algebra, $x = y$. Thus, if $x, y \leq 0$, $f$ is injective.\\
+
+        Since $f$ is injective in all cases, $f$ is injective.
+
+        \item
+        Above, we proved $f$ is injective. Thus, it suffices to show $f$ is not surjective
+        from $\RR \rightarrow \RR$. Let $3x = \frac{1}{2}$ and $x\leq 0$. Then, 
+        $x = \frac{1}{6}$. However, this contradicts the fact that $x\leq 0$. Thus 
+        it must be the case that $2x+1 = \frac{1}{2}$ for some $x > 0$. Then, 
+        $2x = -\frac{1}{2}$ and $x = -\frac{1}{4}$. However, this contradicts that 
+        $x > 0$. Thus, we have found an element in $\RR$ such that there is no 
+        $f(x) = \frac{1}{2}$. Thus, $f$ is not surjective. \\
+
+        Since $f$ is not surjective, $f$ is not bijective. 
+    \end{enumerate}
+
+    \pagebreak
+    \item
+    \begin{enumerate}
+        \item 
+        Let $x = y^2+1$. Then $y = \pm \sqrt{x-1}$. Since $y\in [0, \infty]$, $y = \sqrt{x-1}$. 
+        Let $x\in [1, \infty)$. Then, $y = \sqrt{x-1}$ is a real number and $x = (\sqrt{x-1})^2 + 1$.
+        Since $x\geq 1$, $y = \sqrt{x-1} \geq 0$. Thus, there exists a $y\in [0, \infty)$ such that $(x, y)\in R$. 
+        Assume $(x, u)\in R$ and $(x, v)\in R$. Then, $\sqrt{x-1} = u$ and $\sqrt{x-1} = v$. 
+        Thus, $u = v$. Therefore, $R$ is a function from $[1, \infty) \rightarrow [0, \infty)$.
+
+        \item
+        Assume $x_1, x_2 \in [1, \infty)$ and $x_2 > x_1$. Then, $x_2-1 > x_1-1$ and 
+        $\sqrt{x_2-1} > \sqrt{x_1-1}$. Since $\sqrt{x_2-1} > \sqrt{x_1-1}$, $y_2>y_1$.
+        
+        \item 
+        Let $x\in [1, \infty), y\in (-\infty, \infty)$. Since $x = y^2+1$, $y = \pm \sqrt{x-1}$. 
+        Thus, $f(x) = \pm \sqrt{x-1}$. Since $x$ maps to $\pm \sqrt{x-1}$, $f(x) = y$ is not unique. 
+        Therefore, $f$ is not a function from $[1, \infty)$ to $(-\infty, \infty)$. 
+    \end{enumerate}
+
+    \pagebreak
+    \item
+    \begin{enumerate}
+        \item No, since every $y$ except zero has two $x$ which maps to it, namely $\pm \sqrt{y}$. 
+        \item Yes, since every $y$ in $[0, \infty)$ is mapped to by some $x$ namely $\sqrt{y}$. 
+        \item Yes, since every $y$ value is mapped to exactly one $x$ value. 
+        \item Yes, since every $y\in [0, \infty)$ is mapped to by some $x$ namely $\frac{y}{y+1}$.
+        \item $f\circ g = f(g(x)) = (\frac{x}{1-x})^2$. Domain = $[0,1)$. Codomain = $[0, \infty)$ 
+        This function is bijective from $[0, 1)$ to $[0, \infty)$. 
+        \item $g\circ f = g(f(x)) = \frac{x^2}{1-x^2}$. Domain = $(-\infty, -1)\cup (-1, 1)\cup (1, \infty)$
+        Codomain = $(-\infty, \infty)$. This function is surjective, but not injective. 
+        \item
+        \begin{enumerate}
+            \item Since $f$ was not injective, we also see that $g\circ f$ is also not injective
+            which we could have guessed from Theorem 4.3.3. 
+            \item In our case, $f$ is not bijective yet $f\circ g$ is bijective. This is because 
+            $g$ is only defined on $[0, 1)$ making the domain of the composite function also $[0, 1)$.
+            Since $f$ is bijective on this limited domain, $f\circ g$ is also bijective. 
+        \end{enumerate} 
+        \item 
+        \begin{enumerate}
+            \item Inverse function of $g$: $\frac{x}{x+1}$. Domain: $[0, \infty)$. Codomain: $[0, 1)$.
+            \item Inverse function of $f\circ g$: $\frac{\sqrt{x}}{\sqrt{x} + 1}$. Domain: $[0, \infty)$
+            Codomain: $[0, 1)$. 
+        \end{enumerate}
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
